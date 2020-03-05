@@ -3,7 +3,6 @@
  *
  * Name(s): Benigno Ortega, Javier Jimenez
  * Section: T 7-9:50 
- * Lab: 1C
  */
 
 #ifndef __STM32L476G_DISCOVERY_SYSTICK_H

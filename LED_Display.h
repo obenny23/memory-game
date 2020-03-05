@@ -4,6 +4,6 @@
 #include "stm32l476xx.h"
 
 
-void Display_Pattern(char* arr[]);
+void Display_Pattern(char* arr[], int num);
 
 #endif

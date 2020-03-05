@@ -1,4 +1,4 @@
-//#include "UART.h"
+#include "UART.h"
 #include <stdio.h>
 
 // Implement a dummy __FILE struct, which is called with the FILE structure.
@@ -15,6 +15,7 @@ int fputc(int ch, FILE *f) {
 	uint8_t c;
 	c = ch & 0x00FF;
 	USART_Write(USART1, (uint8_t *)&c, 1); // Comment out for part 1
+	//USART_Write(USART2, (uint8_t *)&c, 1); // Comment out for part 2
 	return(ch);
 }
 
@@ -22,5 +23,7 @@ int fputc(int ch, FILE *f) {
 int fgetc(FILE *f) {  
 	uint8_t rxByte;
 	rxByte = USART_Read(USART1); // Comment out for part 1
+	//rxByte = USART_Read(USART2); // Comment out for part 1
+
 	return rxByte;
 }

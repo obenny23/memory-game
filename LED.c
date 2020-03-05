@@ -5,12 +5,12 @@ void LED_Init(void) {
 	RCC->AHB2ENR |= RCC_AHB2ENR_GPIOAEN;	
 	
 	// Initialize PB2 LED *UP
-	GPIOB->MODER &=~ GPIO_MODER_MODE2;
-	GPIOB->MODER |= GPIO_MODER_MODE2_0;
-	GPIOB->OTYPER &=~ GPIO_OTYPER_OT2;
-  GPIOB->PUPDR &=~ GPIO_PUPDR_PUPDR2;
+	GPIOB->MODER &=~ GPIO_MODER_MODE3;
+	GPIOB->MODER |= GPIO_MODER_MODE3_0;
+	GPIOB->OTYPER &=~ GPIO_OTYPER_OT3;
+  GPIOB->PUPDR &=~ GPIO_PUPDR_PUPDR3;
 	
-	// Initialize PB3 LED *DOWN
+	// Initialize PA3 LED *DOWN
 	GPIOA->MODER &=~ GPIO_MODER_MODE2;
   GPIOA->MODER |= GPIO_MODER_MODE2_0;
   GPIOA->OTYPER &=~ GPIO_OTYPER_OT2;
@@ -29,8 +29,8 @@ void LED_Init(void) {
   GPIOB->PUPDR &=~ GPIO_PUPDR_PUPDR7;
 }
 
-void PB2_LED_Toggle(void) {
-	GPIOB->ODR ^= GPIO_ODR_OD2;
+void PB3_LED_Toggle(void) {
+	GPIOB->ODR ^= GPIO_ODR_OD3;
 }
 
 void PA2_LED_Toggle(void) {
@@ -46,7 +46,7 @@ void PB7_LED_Toggle(void) {
 }
 
 void All_LED_Toggle(void){
-	PB2_LED_Toggle();
+	PB3_LED_Toggle();
 	PA2_LED_Toggle();
 	PB6_LED_Toggle();
 	PB7_LED_Toggle();

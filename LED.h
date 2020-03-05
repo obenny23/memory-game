@@ -5,7 +5,7 @@
 
 void LED_Init(void);
 
-void PB2_LED_Toggle(void);
+void PB3_LED_Toggle(void);
 void PA2_LED_Toggle(void);
 void PB6_LED_Toggle(void);
 void PB7_LED_Toggle(void);
