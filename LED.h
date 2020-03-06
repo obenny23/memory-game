@@ -5,12 +5,17 @@
 
 void LED_Init(void);
 
-void PB3_LED_Toggle(void);
-void PA2_LED_Toggle(void);
-void PB6_LED_Toggle(void);
-void PB7_LED_Toggle(void);
-void All_LED_Toggle(void);
+void Yellow_LED_Toggle(void);
+void Red_LED_Toggle(void);
+void Blue_LED_Toggle(void);
+void Green_LED_Toggle(void);
 
-
+void Flash_All_LED(void);
+void Flash_Yellow_LED(void);
+void Flash_Red_LED(void);
+void Flash_Blue_LED(void);
+void Flash_Green_LED(void);
+void Game_Over_Pattern(void);
+void Game_Over(void);
 
 #endif
