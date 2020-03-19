@@ -1,9 +1,8 @@
 /*
  * ECE 153B - Winter 2020
  *
- * Name(s): Benigno Ortega, Javier Jimenez
+ * Names: Benigno Ortega, Javier Jimenez
  * Section: T 7-9:50 
- * Lab: 1C
  */
 
 #include "SysTimer.h"

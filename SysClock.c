@@ -1,10 +1,14 @@
+/*
+ * ECE 153B - Winter 2020
+ *
+ * Names: Benigno Ortega, Javier Jimenez
+ * Section: T 7-9:50 
+ */ 
+
 #include "SysClock.h"
 
-//******************************************************************************************
-// Switch the PLL source from MSI to HSI, and select the PLL as SYSCLK source.
-//******************************************************************************************
-void System_Clock_Init(void){
-	
+void System_Clock_Init(void) {
+		
 	uint32_t HSITrim;
 
 	// To correctly read data from FLASH memory, the number of wait states (LATENCY)
@@ -54,13 +58,7 @@ void System_Clock_Init(void){
 	RCC->CFGR &= ~RCC_CFGR_PPRE1; // APB high-speed prescaler (APB1) = 1, HCLK not divided
 	RCC->CFGR &= ~RCC_CFGR_PPRE2; // APB high-speed prescaler (APB2) = 1, HCLK not divided
 	
-	// RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLM;
-	// RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLN;
-	// RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLP; 
-	// RCC->PLLCFGR &= ~RCC_PLLCFGR_PLLQ;	
-	// RCC->PLLCFGR |= RCC_PLLCFGR_PLLPEN; // Enable Main PLL PLLSAI3CLK output enable
-	// RCC->PLLCFGR |= RCC_PLLCFGR_PLLQEN; // Enable Main PLL PLL48M1CLK output enable
-	
+
 	RCC->CR &= ~RCC_CR_PLLSAI1ON;  // SAI1 PLL enable
 	while ( (RCC->CR & RCC_CR_PLLSAI1ON) == RCC_CR_PLLSAI1ON );
 	
@@ -78,16 +76,6 @@ void System_Clock_Init(void){
 	RCC->PLLSAI1CFGR |= RCC_PLLSAI1CFGR_PLLSAI1P;
 	RCC->PLLSAI1CFGR |= RCC_PLLSAI1CFGR_PLLSAI1PEN;
 	
-	// SAI1PLL division factor for PLL48M2CLK (48 MHz clock)
-	// RCC->PLLSAI1CFGR &= ~RCC_PLLSAI1CFGR_PLLSAI1Q;
-	// RCC->PLLSAI1CFGR |= U<<21;
-	// RCC->PLLSAI1CFGR |= RCC_PLLSAI1CFGR_PLLSAI1QEN;
-	
-	// PLLSAI1 division factor for PLLADC1CLK (ADC clock)
-	// 00: PLLSAI1R = 2, 01: PLLSAI1R = 4, 10: PLLSAI1R = 6, 11: PLLSAI1R = 8
-	// RCC->PLLSAI1CFGR &= ~RCC_PLLSAI1CFGR_PLLSAI1R; 
-	// RCC->PLLSAI1CFGR |= U<<25;
-	// RCC->PLLSAI1CFGR |= RCC_PLLSAI1CFGR_PLLSAI1REN;
 	
 	RCC->CR |= RCC_CR_PLLSAI1ON;  // SAI1 PLL enable
 	while ( (RCC->CR & RCC_CR_PLLSAI1ON) == 0);
@@ -100,4 +88,6 @@ void System_Clock_Init(void){
 	RCC->CCIPR &= ~RCC_CCIPR_SAI1SEL;
 
 	RCC->APB2ENR |= RCC_APB2ENR_SAI1EN;
+	
+	
 }

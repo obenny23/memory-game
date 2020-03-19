@@ -1,3 +1,10 @@
+/*
+ * ECE 153B - Winter 2020
+ *
+ * Names: Benigno Ortega, Javier Jimenez
+ * Section: T 7-9:50 
+ */ 
+
 #include "UART.h"
 #include <stdio.h>
 
@@ -10,20 +17,17 @@ struct __FILE {
 FILE __stdout;
 FILE __stdin;
  
-// Retarget printf() to USART1/USART2
+// Retarget printf() to USART1
 int fputc(int ch, FILE *f) { 
 	uint8_t c;
 	c = ch & 0x00FF;
-	//USART_Write(USART1, (uint8_t *)&c, 1); // Comment out for part 1
-	USART_Write(USART2, (uint8_t *)&c, 1); // Comment out for part 2
+	USART_Write(USART1, (uint8_t *)&c, 1); 
 	return(ch);
 }
 
-// Retarget scanf() to USART1/USART2
+// Retarget scanf() to USART1
 int fgetc(FILE *f) {  
 	uint8_t rxByte;
-	//rxByte = USART_Read(USART1); // Comment out for part 1
-	rxByte = USART_Read(USART2); // Comment out for part 2
-
+	rxByte = USART_Read(USART1); 
 	return rxByte;
 }

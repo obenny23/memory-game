@@ -7,9 +7,8 @@
 
 void SPI1_GPIO_Init(void);
 void SPI_Init(void);
-void SPI_Write(SPI_TypeDef * SPIx, uint8_t *txBuffer, uint8_t * rxBuffer, int size);
-void SPI_Read(SPI_TypeDef * SPIx, uint8_t *rxBuffer, int size);
+void SPI_Write(SPI_TypeDef * SPIx, uint16_t *txBuffer, int size);
 void SPI_Delay(uint32_t us);
-void SPIx_IRQHandler(SPI_TypeDef * SPIx, uint8_t *buffer, uint8_t *counter);
+void SPIx_IRQHandler(SPI_TypeDef * SPIx, uint16_t *buffer, uint16_t *counter);
 
 #endif 

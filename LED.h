@@ -15,7 +15,11 @@ void Flash_Yellow_LED(void);
 void Flash_Red_LED(void);
 void Flash_Blue_LED(void);
 void Flash_Green_LED(void);
+
 void Game_Over_Pattern(void);
 void Game_Over(void);
+
+void led_delay(int x);
+
 
 #endif

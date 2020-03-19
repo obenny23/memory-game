@@ -1,11 +1,3 @@
-/*
- * ECE 153B - Winter 2020
- *
- * Name(s):
- * Section:
- * Lab: 1B
- */
-
 #ifndef __STM32L476G_DISCOVERY_CLOCK_H
 #define __STM32L476G_DISCOVERY_CLOCK_H
 
